@@ -1,0 +1,10 @@
+name: myshinyapp
+title:
+username:
+account: slimbentanfous
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 252857
+bundleId: 1157903
+url: https://slimbentanfous.shinyapps.io/myshinyapp/
+when: 1514826960.82639

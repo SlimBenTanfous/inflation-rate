@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "library(rsconnect)\nrsconnect::deployApp('C:/Users/DELL/Desktop/Shiny/MyShinyApp')\n",
+    "created" : 1514825698529.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "137773449",
+    "id" : "3C43F8EF",
+    "lastKnownWriteTime" : 3180231166173738496,
+    "last_content_update" : 1514825788141,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

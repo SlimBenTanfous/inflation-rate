@@ -1,0 +1,172 @@
+"0","if(!require(datasets)) { install.packages(""datasets""); require(datasets)}"
+"2","Warning message:
+"
+"2","R graphics engine version 12 is not supported by this version of RStudio. The Plots tab will be disabled until a newer version of RStudio is installed. 
+"
+"0","if(!require(dplyr)) { install.packages(""dplyr""); require(dplyr)}"
+"2","Le chargement a nécessité le package : dplyr
+"
+"2","
+Attachement du package : ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","if(!require(sunburstR)) { install.packages(""sunburstR""); require(sunburstR)}"
+"2","Le chargement a nécessité le package : sunburstR
+"
+"0","if(!require(reshape2)) { install.packages(""reshape2""); require(reshape2)}"
+"2","Le chargement a nécessité le package : reshape2
+"
+"0","if(!require(wordcloud)) { install.packages(""wordcloud""); require(wordcloud)}"
+"2","Le chargement a nécessité le package : wordcloud
+"
+"2","Le chargement a nécessité le package : RColorBrewer
+"
+"0","if(!require(plotly)) { install.packages(""plotly""); require(plotly)}"
+"2","Le chargement a nécessité le package : plotly
+"
+"2","Le chargement a nécessité le package : ggplot2
+"
+"2","
+Attachement du package : ‘plotly’
+
+"
+"2","The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+"
+"2","The following object is masked from ‘package:stats’:
+
+    filter
+
+"
+"2","The following object is masked from ‘package:graphics’:
+
+    layout
+
+"
+"0","if(!require(shiny)) { install.packages(""shiny""); require(shiny)}"
+"2","Le chargement a nécessité le package : shiny
+"
+"0","if(!require(ggplot2)) { install.packages(""ggplot2""); require(ggplot2)}"
+"0","if(!require(ggpubr)) { install.packages(""ggpubr""); require(ggpubr)}"
+"2","Le chargement a nécessité le package : ggpubr
+"
+"2","Le chargement a nécessité le package : magrittr
+"
+"0","if(!require(flexdashboard)) { install.packages(""flexdashboard""); require(flexdashboard)}"
+"2","Le chargement a nécessité le package : flexdashboard
+"
+"0","if(!require(maptools)) { install.packages(""maptools""); require(maptools)}"
+"2","Le chargement a nécessité le package : maptools
+"
+"2","Le chargement a nécessité le package : sp
+"
+"2","Checking rgeos availability: FALSE
+ 	Note: when rgeos is not available, polygon geometry 	computations in maptools depend on gpclib,
+ 	which has a restricted licence. It is disabled by default;
+ 	to enable gpclib, type gpclibPermit()
+"
+"0","if(!require(sp)) { install.packages(""sp""); require(sp)}"
+"0","if(!require(shapefiles)) { install.packages(""shapefiles""); require(shapefiles)}"
+"2","Le chargement a nécessité le package : shapefiles
+"
+"2","Le chargement a nécessité le package : foreign
+"
+"2","
+Attachement du package : ‘shapefiles’
+
+"
+"2","The following objects are masked from ‘package:foreign’:
+
+    read.dbf, write.dbf
+
+"
+"0","if(!require(DT)) { install.packages(""DT""); require(DT)}"
+"2","Le chargement a nécessité le package : DT
+"
+"2","
+Attachement du package : ‘DT’
+
+"
+"2","The following objects are masked from ‘package:shiny’:
+
+    dataTableOutput, renderDataTable
+
+"
+"0","if(!require(doBy)) { install.packages(""doBy""); require(doBy)}"
+"2","Le chargement a nécessité le package : doBy
+"
+"0","library(datasets)"
+"0","library(dplyr)"
+"0","library(sunburstR)"
+"0","library(reshape2)"
+"0","library(wordcloud)"
+"0","library(plotly)"
+"0","library(shiny)"
+"0","library(ggplot2)"
+"0","library(ggpubr)"
+"0","library(flexdashboard)"
+"0","library(maptools)"
+"0","library(sp)"
+"0","library(shapefiles)"
+"0","library(DT)"
+"0","library(doBy)"
+"0","fdc <- readShapePoly(""Tunisie_snuts4.shp"")"
+"2","use rgdal::readOGR or sf::st_read"
+"0","data_del <- read.csv(""tunisie_data_del_2011.csv"", header = TRUE, sep = "";"", dec = "","", encoding = ""latin1"")"
+"0","regions <- as.data.frame(data_del[,c(""gou_nom"", ""reg_nom"")])"
+"0","regions <- unique(regions)"
+"0","regions <- as.data.frame(apply(regions, 2, as.factor))"
+"0","names(regions) <- c( ""REGION"", ""District"")"
+"0","library(plyr)"
+"2","----------------------------------------------------------------------------------------------------------
+"
+"2","You have loaded plyr after dplyr - this is likely to cause problems.
+If you need functions from both plyr and dplyr, please load plyr first, then dplyr:
+library(plyr); library(dplyr)
+"
+"2","----------------------------------------------------------------------------------------------------------
+"
+"2","
+Attachement du package : ‘plyr’
+
+"
+"2","The following objects are masked from ‘package:plotly’:
+
+    arrange, mutate, rename, summarise
+
+"
+"2","The following objects are masked from ‘package:dplyr’:
+
+    arrange, count, desc, failwith, id, mutate, rename, summarise, summarize
+
+"
+"0","regions$REGION<-revalue(regions$REGION, c(""Manubah""=""Manouba"", ""Medenine""=""Mednine"", ""Sidi Bou Zid""=""Sidi Bou Zid""))"
+"0","names(regions) <- c( ""REGION"", ""District"")"
+"0","data <- read.csv(""Book1.csv"", header = T, sep = "";"")"
+"0","data <- merge(data, regions, by =""REGION"")"
+"0","data_work <- data[,c( ""District"", ""REGION"", ""URBRUR"",""Q3A"", ""Q46A"", ""Q46B"", ""Q46D"", ""Q97"", ""Q23"", ""Q24"", ""Q73C_ARB"", ""Q60C"", ""Q65K"", ""Q85C"", ""Q63PT1"", ""THISINT"")]"
+"0","data_work$Q46A <- as.numeric(data_work$Q46A)"
+"0","data_work$Q46B <- as.numeric(data_work$Q46B)"
+"0","data_work$Q46D <- as.numeric(data_work$Q46D)"
+"0","data_work$REGION <- as.factor(data_work$REGION)"
+"0","data_work <- as.data.frame(apply(data_work, 2, as.factor))"
+"0","pt <- cbind(fdc@data[, ""id""], as.data.frame(coordinates(fdc)))"
+"0","colnames(pt) <- c(""id"", ""x"", ""y"")"
+"0","i=match(pt[, ""id""], data_del[, ""del""])"
+"0","pt <- data.frame(pt, data_del[i, ])"
+"0","pt$var <- pt$POPTO2010"
+"0","pop_gouv <- tapply(pt[,""var""], pt$gou_nom, sum)"
+"0","pop_gouv_max <- pop_gouv[which.max(pop_gouv)]"
+"0","pop_gouv_min <- pop_gouv[which.min(pop_gouv)]"
